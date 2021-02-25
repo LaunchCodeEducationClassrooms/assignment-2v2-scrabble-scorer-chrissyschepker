@@ -10,7 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "jasmine": "^3.6.3",
-    "readline-sync": "^1.4.10"
+    "npm": "^7.5.4",
+    "readline-sync": "^1.4.10",
+    "transform": "^1.1.2"
   },
   "devDependencies": {}
 }
