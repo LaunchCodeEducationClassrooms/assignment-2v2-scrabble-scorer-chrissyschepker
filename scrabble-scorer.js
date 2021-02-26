@@ -69,31 +69,37 @@ const scoringAlgorithms = [
   Object({
     name: 'Simple Score', 
     description: 'Each letter is worth 1 point.',
-    scorerFunction: simpleScore,
+    scoringFunction: simpleScore,
   }),
   Object({
     name: 'Vowel Bonus Score',
     description: 'Vowels are 3 pts, consonants are 1 pt.',
-    scorerFunction: vowelBonusScore
+    scoringFunction: vowelBonusScore
   }),
   Object({
     name: 'Scrabble Score',
     description: 'Traditional Scrabble scoring algorithm.',
-  scorerFuction: oldScrabbleScorer
+  scoringFuction: oldScrabbleScorer
   })
 ];
 
 function scorerPrompt(userWord) {
     console.log(`Which scoring algorithm would you like to use? \n0 - Simple: One point per character\n1 - Vowel Bonus: Vowels are worth 3 points\n2 - Scrabble: Uses scrabble point system`);
     let scoringChoice = input.question("Enter 0, 1, or 2: ");
-    return console.log(`Score for "${userWord}": ${scoringAlgorithms[scoringChoice].scorerFunction(userWord)}`);
+    return console.log(`Score for "${userWord}": ${scoringAlgorithms[scoringChoice].scoringFunction(userWord)}`);
  }
 
-function transform() {
-
+function transform(obj) {
+    let transformedObj = {};
+    for (item in obj) {
+      for (i = 0; i < obj[item].length; i++) {
+        transformedObj[obj[item][i].toLowerCase()] = Number(item);
+      }
+    }
+    return transformedObj;
  };
 
-let newPointStructure;
+let newPointStructure = transform(oldPointStructure);
 
 function runProgram() {
   initialPrompt();
