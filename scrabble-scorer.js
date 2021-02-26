@@ -39,7 +39,7 @@ function initialPrompt() {
 
   let simpleScore = function(word){
     word.toUpperCase();
-    let letterPoints = '';
+    let letterPoints = 0;
     for (let i = 0; i < word.length; i++){
 for (item in oldPointStructure){
   if (oldPointStructure[item].includes(word[i])){
